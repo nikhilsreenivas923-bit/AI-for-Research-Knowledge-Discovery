@@ -1,0 +1,23 @@
+{
+  "name": "research-mind-ai",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Production-ready AI-powered Research & Knowledge Discovery platform",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start",
+    "migrate": "node supabase/run-migration.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "dotenv": "^18.0.10",
+    "pg": "^8.23.1"
+  }
+}

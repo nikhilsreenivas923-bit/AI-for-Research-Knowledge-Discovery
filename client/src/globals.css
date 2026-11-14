@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Light Mode - Clean, luminous SaaS canvas */
+    --background: 210 40% 98%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    /* Default Primary: Sapphire Blue */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.75rem;
+    --glow-color: rgba(37, 99, 235, 0.3);
+  }
+
+  .dark {
+    /* Base Dark Mode - Rich obsidian backdrop with low eye strain */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 7.5%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 7.5%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Default Primary Dark: Radiant Cyber Blue */
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 14%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 14.5%;
+    --input: 217.2 32.6% 14.5%;
+    --ring: 217.2 91.2% 59.8%;
+
+    --glow-color: rgba(59, 130, 246, 0.4);
+  }
+}
+
+/* ==========================================================================
+   Explicit Dynamic Theme Color Palettes (Reacts instantly via data-theme)
+   ========================================================================== */
+
+/* 1. Emerald Theme */
+[data-theme='emerald'],
+[data-color='emerald'] {
+  --primary: 142.1 76.2% 36.3%;
+  --primary-foreground: 355.7 100% 97.3%;
+  --ring: 142.1 76.2% 36.3%;
+  --glow-color: rgba(16, 185, 129, 0.35);
+}
+
+.dark[data-theme='emerald'],
+.dark [data-theme='emerald'],
+.dark[data-color='emerald'],
+.dark [data-color='emerald'] {
+  --primary: 142.1 70.6% 45.3%;
+  --primary-foreground: 144.9 80.4% 10%;
+  --ring: 142.1 70.6% 45.3%;
+  --glow-color: rgba(16, 185, 129, 0.45);
+}
+
+/* 2. Violet Theme */
+[data-theme='violet'],
+[data-color='violet'] {
+  --primary: 262.1 83.3% 57.8%;
+  --primary-foreground: 210 40% 98%;
+  --ring: 262.1 83.3% 57.8%;
+  --glow-color: rgba(124, 58, 237, 0.35);
+}
+
+.dark[data-theme='violet'],
+.dark [data-theme='violet'],
+.dark[data-color='violet'],
+.dark [data-color='violet'] {
+  --primary: 263.4 70% 65%;
+  --primary-foreground: 210 40% 98%;
+  --ring: 263.4 70% 65%;
+  --glow-color: rgba(139, 92, 246, 0.45);
+}
+
+/* 3. Rose Theme */
+[data-theme='rose'],
+[data-color='rose'] {
+  --primary: 346.8 77.2% 49.8%;
+  --primary-foreground: 355.7 100% 97.3%;
+  --ring: 346.8 77.2% 49.8%;
+  --glow-color: rgba(225, 29, 72, 0.35);
+}
+
+.dark[data-theme='rose'],
+.dark [data-theme='rose'],
+.dark[data-color='rose'],
+.dark [data-color='rose'] {
+  --primary: 346.8 77.2% 59.8%;
+  --primary-foreground: 355.7 100% 97.3%;
+  --ring: 346.8 77.2% 59.8%;
+  --glow-color: rgba(244, 63, 94, 0.45);
+}
+
+/* 4. Orange Theme */
+[data-theme='orange'],
+[data-color='orange'] {
+  --primary: 24.6 95% 53.1%;
+  --primary-foreground: 60 9.1% 97.8%;
+  --ring: 24.6 95% 53.1%;
+  --glow-color: rgba(234, 88, 12, 0.35);
+}
+
+.dark[data-theme='orange'],
+.dark [data-theme='orange'],
+.dark[data-color='orange'],
+.dark [data-color='orange'] {
+  --primary: 20.5 90.2% 48.2%;
+  --primary-foreground: 60 9.1% 97.8%;
+  --ring: 20.5 90.2% 48.2%;
+  --glow-color: rgba(249, 115, 22, 0.45);
+}
+
+/* 5. Amber Theme */
+[data-theme='amber'],
+[data-color='amber'] {
+  --primary: 37.7 92.1% 50.2%;
+  --primary-foreground: 48 96% 89%;
+  --ring: 37.7 92.1% 50.2%;
+  --glow-color: rgba(217, 119, 6, 0.35);
+}
+
+.dark[data-theme='amber'],
+.dark [data-theme='amber'],
+.dark[data-color='amber'],
+.dark [data-color='amber'] {
+  --primary: 43 96% 56%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --ring: 43 96% 56%;
+  --glow-color: rgba(245, 158, 11, 0.45);
+}
+
+/* 6. Cyan Theme */
+[data-theme='cyan'],
+[data-color='cyan'] {
+  --primary: 188.7 94.5% 42.7%;
+  --primary-foreground: 210 40% 98%;
+  --ring: 188.7 94.5% 42.7%;
+  --glow-color: rgba(8, 145, 178, 0.35);
+}
+
+.dark[data-theme='cyan'],
+.dark [data-theme='cyan'],
+.dark[data-color='cyan'],
+.dark [data-color='cyan'] {
+  --primary: 188.7 94.5% 52.7%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --ring: 188.7 94.5% 52.7%;
+  --glow-color: rgba(34, 211, 238, 0.45);
+}
+
+/* 7. Blue Theme */
+[data-theme='blue'],
+[data-color='blue'] {
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --ring: 221.2 83.2% 53.3%;
+  --glow-color: rgba(37, 99, 235, 0.3);
+}
+
+.dark[data-theme='blue'],
+.dark [data-theme='blue'],
+.dark[data-color='blue'],
+.dark [data-color='blue'] {
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --ring: 217.2 91.2% 59.8%;
+  --glow-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Corner Curvature Variables */
+[data-radius='sm'] {
+  --radius: 0.5rem;
+}
+
+[data-radius='md'] {
+  --radius: 0.75rem;
+}
+
+[data-radius='lg'] {
+  --radius: 1rem;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  /* Custom theme-aware scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.25);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.45);
+  }
+}
+
+/* Custom Markdown formatting */
+.prose-research {
+  color: hsl(var(--foreground) / 0.88);
+  line-height: 1.75;
+}
+
+.prose-research h1,
+.prose-research h2,
+.prose-research h3,
+.prose-research h4 {
+  color: hsl(var(--foreground));
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.prose-research h1 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid hsl(var(--border) / 0.8);
+  padding-bottom: 0.35rem;
+}
+
+.prose-research h2 {
+  font-size: 1.3rem;
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+  padding-bottom: 0.25rem;
+}
+
+.prose-research h3 {
+  font-size: 1.15rem;
+  color: hsl(var(--primary));
+}
+
+.prose-research h4 {
+  font-size: 1rem;
+  color: hsl(var(--foreground) / 0.9);
+}
+
+.prose-research p {
+  margin-bottom: 0.75rem;
+}
+
+.prose-research ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-research ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-research li {
+  margin-bottom: 0.35rem;
+}
+
+.prose-research blockquote {
+  border-left: 3px solid hsl(var(--primary));
+  padding-left: 1rem;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--primary) / 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 0.75rem;
+}
+
+.prose-research code {
+  background: hsl(var(--muted));
+  color: hsl(var(--primary));
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+}
+
+.prose-research pre {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.8);
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin-bottom: 0.75rem;
+}
+
+/* Linear edge fade mask for infinite scrolling tickers */
+.mask-linear-fade {
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
